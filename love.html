@@ -1,0 +1,970 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>For My Love ♡</title>
+
+
+<style>
+
+/* =====================================================
+   BASIC PAGE
+   ===================================================== */
+
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+
+    margin:0;
+    padding:0;
+
+    width:100%;
+    height:100%;
+
+}
+
+body{
+
+    overflow:hidden;
+
+    background:#050207;
+
+    color:white;
+
+    font-family:Georgia,serif;
+
+}
+
+
+/* =====================================================
+   BACKGROUND GLOW
+   ===================================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:700px;
+    height:700px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(255,20,147,.14),
+        rgba(255,20,147,.04) 40%,
+        transparent 70%
+    );
+
+    filter:blur(35px);
+
+}
+
+
+/* =====================================================
+   STARS
+   ===================================================== */
+
+.star{
+
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:#ffd6ec;
+
+    box-shadow:
+        0 0 8px #ff69b4,
+        0 0 15px #ff1493;
+
+    animation:twinkle 2s infinite alternate;
+
+}
+
+@keyframes twinkle{
+
+    from{
+        opacity:.2;
+        transform:scale(.5);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
+
+}
+
+
+/* =====================================================
+   MAIN SCREEN
+   ===================================================== */
+
+.container{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    flex-direction:column;
+
+}
+
+
+/* =====================================================
+   TOP TEXT
+   ===================================================== */
+
+.top{
+
+    position:absolute;
+
+    top:7%;
+
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#ffb6d9;
+
+    opacity:.65;
+
+}
+
+
+/* =====================================================
+   HEART
+   ===================================================== */
+
+.heart{
+
+    width:min(90vw,650px);
+
+    animation:heartbeat 2.2s infinite;
+
+    filter:
+
+        drop-shadow(
+            0 0 8px #ff1493
+        )
+
+        drop-shadow(
+            0 0 25px #ff1493
+        )
+
+        drop-shadow(
+            0 0 55px rgba(255,20,147,.7)
+        );
+
+}
+
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    10%{
+        transform:scale(1.04);
+    }
+
+    20%{
+        transform:scale(1);
+    }
+
+    30%{
+        transform:scale(1.05);
+    }
+
+    45%{
+        transform:scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   HEART TEXT
+   ===================================================== */
+
+.love{
+
+    font-family:Arial,sans-serif;
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    fill:#ffb6dc;
+
+    filter:url(#pinkGlow);
+
+}
+
+
+/* =====================================================
+   CENTER OF HEART
+   ===================================================== */
+
+.center{
+
+    position:absolute;
+
+    text-align:center;
+
+    pointer-events:none;
+
+}
+
+
+.center small{
+
+    font-family:Arial,sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:#ffb6d9;
+
+    text-transform:uppercase;
+
+}
+
+
+.center h1{
+
+    margin:10px 0;
+
+    font-size:clamp(30px,7vw,58px);
+
+    font-weight:normal;
+
+    color:#fff5fa;
+
+    text-shadow:
+
+        0 0 10px #ff69b4,
+
+        0 0 30px #ff1493;
+
+}
+
+
+.center p{
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    color:#ffd8ec;
+
+    opacity:.6;
+
+}
+
+
+/* =====================================================
+   OPEN LETTER BUTTON
+   ===================================================== */
+
+.open-letter{
+
+    position:absolute;
+
+    bottom:9%;
+
+    padding:12px 25px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,105,180,.55);
+
+    background:rgba(255,20,147,.07);
+
+    color:#ffc6e3;
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+
+.open-letter:hover{
+
+    background:rgba(255,20,147,.2);
+
+    box-shadow:
+
+        0 0 20px rgba(255,20,147,.4);
+
+    transform:scale(1.05);
+
+}
+
+
+/* =====================================================
+   LETTER SCREEN
+   ===================================================== */
+
+.letter-screen{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:20;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255,20,147,.10),
+            rgba(3,1,5,.98) 65%
+        );
+
+    backdrop-filter:blur(15px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:25px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.7s;
+
+}
+
+
+.letter-screen.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+/* =====================================================
+   LETTER
+   ===================================================== */
+
+.letter{
+
+    width:min(92%,600px);
+
+    max-height:85vh;
+
+    overflow-y:auto;
+
+    padding:45px 40px;
+
+    border-radius:20px;
+
+    border:
+
+        1px solid
+        rgba(255,105,180,.25);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(35,7,27,.96),
+            rgba(8,2,9,.98)
+        );
+
+    box-shadow:
+
+        0 0 40px
+        rgba(255,20,147,.15),
+
+        0 0 100px
+        rgba(255,20,147,.08);
+
+    animation:letterAppear .8s ease;
+
+}
+
+
+@keyframes letterAppear{
+
+    from{
+
+        transform:
+            translateY(30px)
+            scale(.95);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+
+/* =====================================================
+   LETTER HEADER
+   ===================================================== */
+
+.letter-heart{
+
+    text-align:center;
+
+    font-size:35px;
+
+    color:#ff69b4;
+
+    text-shadow:
+
+        0 0 10px #ff1493,
+
+        0 0 30px #ff1493;
+
+}
+
+
+.letter h2{
+
+    text-align:center;
+
+    font-size:30px;
+
+    font-weight:normal;
+
+    margin:
+
+        10px 0 30px;
+
+    color:#fff0f8;
+
+}
+
+
+/* =====================================================
+   YOUR LETTER
+   ===================================================== */
+
+.personal-letter{
+
+    font-size:16px;
+
+    line-height:1.9;
+
+    color:#ffe3ef;
+
+}
+
+
+/*
+========================================================
+
+   💗 YOUR PERSONAL LETTER GOES HERE 💗
+
+   Replace ONLY the text between
+   <p> and </p> below.
+
+   You can write as many paragraphs as you want.
+
+========================================================
+*/
+
+
+.personal-letter p{
+
+    margin-bottom:20px;
+
+}
+
+
+.signature{
+
+    margin-top:30px;
+
+    text-align:right;
+
+    font-style:italic;
+
+    color:#ff9dcc;
+
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+   ===================================================== */
+
+.close{
+
+    display:block;
+
+    margin:30px auto 0;
+
+    padding:10px 25px;
+
+    border-radius:30px;
+
+    border:
+
+        1px solid
+        rgba(255,105,180,.5);
+
+    background:transparent;
+
+    color:#ffb6d9;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media(max-width:600px){
+
+    .letter{
+
+        padding:30px 22px;
+
+    }
+
+    .personal-letter{
+
+        font-size:15px;
+
+        line-height:1.8;
+
+    }
+
+    .top{
+
+        letter-spacing:3px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND STARS
+     ===================================================== -->
+
+<div class="star"
+     style="left:10%;top:20%;"></div>
+
+<div class="star"
+     style="left:18%;top:70%;
+            animation-delay:.5s;"></div>
+
+<div class="star"
+     style="left:25%;top:12%;
+            animation-delay:1s;"></div>
+
+<div class="star"
+     style="left:80%;top:18%;
+            animation-delay:.3s;"></div>
+
+<div class="star"
+     style="left:90%;top:70%;
+            animation-delay:1.2s;"></div>
+
+<div class="star"
+     style="left:75%;top:82%;
+            animation-delay:.7s;"></div>
+
+<div class="star"
+     style="left:8%;top:50%;
+            animation-delay:1.5s;"></div>
+
+<div class="star"
+     style="left:93%;top:45%;
+            animation-delay:.9s;"></div>
+
+
+<!-- =====================================================
+     MAIN HEART SCREEN
+     ===================================================== -->
+
+<div class="container">
+
+
+    <div class="top">
+
+        made with love ♡
+
+    </div>
+
+
+    <!-- HEART -->
+
+    <svg class="heart"
+         viewBox="0 0 700 650">
+
+
+        <defs>
+
+
+            <!-- HEART SHAPE -->
+
+            <path
+                id="heartPath"
+
+                d="
+                M350 560
+
+                C310 520 120 390 120 200
+
+                C120 90 255 60 350 165
+
+                C445 60 580 90 580 200
+
+                C580 390 390 520 350 560
+
+                Z
+                "
+            />
+
+
+            <!-- GLOW -->
+
+            <filter id="pinkGlow">
+
+                <feGaussianBlur
+                    in="SourceGraphic"
+                    stdDeviation="2"
+                    result="blur"/>
+
+                <feMerge>
+
+                    <feMergeNode in="blur"/>
+
+                    <feMergeNode in="SourceGraphic"/>
+
+                </feMerge>
+
+            </filter>
+
+
+        </defs>
+
+
+        <!-- FIRST I LOVE YOU LAYER -->
+
+        <text class="love">
+
+            <textPath
+                href="#heartPath"
+                startOffset="0%">
+
+                I love you ·
+                I love you ·
+                I love you ·
+                I love you ·
+                I love you ·
+                I love you ·
+                I love you ·
+                I love you ·
+                I love you ·
+
+            </textPath>
+
+        </text>
+
+
+        <!-- SECOND LAYER -->
+
+        <text
+            class="love"
+            style="
+            font-size:17px;
+            opacity:.55;
+            ">
+
+            <textPath
+                href="#heartPath"
+                startOffset="32%">
+
+                I love you ·
+                I love you ·
+                I love you ·
+                I love you ·
+                I love you ·
+                I love you ·
+                I love you ·
+
+            </textPath>
+
+        </text>
+
+
+        <!-- THIRD LAYER -->
+
+        <text
+            class="love"
+            style="
+            font-size:16px;
+            opacity:.3;
+            ">
+
+            <textPath
+                href="#heartPath"
+                startOffset="67%">
+
+                I love you ·
+                I love you ·
+                I love you ·
+                I love you ·
+                I love you ·
+                I love you ·
+
+            </textPath>
+
+        </text>
+
+
+    </svg>
+
+
+    <!-- CENTER -->
+
+    <div class="center">
+
+        <small>
+            for my favorite person
+        </small>
+
+        <h1>
+            you & me ♡
+        </h1>
+
+        <p>
+            some feelings are too big for a text message
+        </p>
+
+    </div>
+
+
+    <!-- LETTER BUTTON -->
+
+    <button
+        class="open-letter"
+        onclick="openLetter()">
+
+        open my letter ♡
+
+    </button>
+
+
+</div>
+
+
+<!-- =====================================================
+     PERSONAL LETTER
+     ===================================================== -->
+
+<div
+    class="letter-screen"
+    id="letterScreen">
+
+
+    <div class="letter">
+
+
+        <div class="letter-heart">
+            ♥
+        </div>
+
+
+        <h2>
+            To my love,
+        </h2>
+
+
+        <!-- =================================================
+             💗 WRITE YOUR LETTER HERE
+             ================================================= -->
+
+        <div class="personal-letter">
+
+
+            <p>
+
+                Amar shonapakhi,
+
+                Ami jani tomar mon ittu sa kharap ashke
+                karon rejalt dilo, kintu babu ami jani
+                tumi iktu chesta korlei aro bhalo korte
+                parba,amar babur shei potential ache.
+                No matter whatever the result is babu
+                tumi joto tuku chesta korba oituk e more than enough
+                I am so much proud of you amar jaan,inshallah
+                amar babu shamne aro onek bhalo korbe.
+                Ami tomake oneeeeek gulaaaaa bhalobashi amar lokkhi
+                babu. Tumi olyesh amar cutupakhi ar amar cutu
+                pakhi shob cheye bhalo,amar babu bole kotha.
+                I lovee youuu sooo muchhhh,Mwaaaahhhhhh .
+
+            </p>
+
+
+            <p>
+
+                You have become such a beautiful part
+                of my life. Thank you for being there
+                for me, for loving me, for making me
+                laugh, and for making even the smallest
+                moments feel special.
+
+            </p>
+
+
+            <p>
+
+                You are the best thing ever happened with mi jaan
+                Never lose your spark pakhi,I know you will do
+                everything you ever wanted to do jaan.
+
+            </p>
+
+
+            <p>
+
+                Whatever happens and wherever life
+                takes us, I will keep choosing you
+                 again and again and every lifetime
+
+                <br><br>
+
+                I love you more than these little words
+                could ever say.
+
+            </p>
+
+
+            <div class="signature">
+
+                Forever yours, ♡
+                <br>
+                Tomar babuipakhi
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="close"
+            onclick="closeLetter()">
+
+            close ♡
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+/* =====================================================
+   OPEN LETTER
+   ===================================================== */
+
+function openLetter(){
+
+    document
+        .getElementById("letterScreen")
+        .classList
+        .add("show");
+
+}
+
+
+/* =====================================================
+   CLOSE LETTER
+   ===================================================== */
+
+function closeLetter(){
+
+    document
+        .getElementById("letterScreen")
+        .classList
+        .remove("show");
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
+
